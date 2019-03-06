@@ -1,6 +1,7 @@
 import pygame
 
 from tiledImporter import *
+from findPath2 import *
 
 
 def main():
@@ -13,7 +14,8 @@ def main():
 
     map01 = readTiledMap(screen,'map01.json','tileset01.png',1)
 
-    path = findPath(map01,(8,9),(9,11),[1])
+    path = findPath2(map01,[1],(8,9),(9,11))
+    print(path)
 
     drawPath(screen,path,16,16)
 
@@ -43,6 +45,7 @@ def main():
                     print(startTile)
                     print(endTile)
                     path = findPath(map01, startTile, endTile, [1])
+                    #path = findPath2(map01, [1], startTile, endTile)
                     drawPath(screen, path, 16, 16)
                     pygame.display.flip()
 

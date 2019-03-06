@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/PycharmProjects/kivyTest1/.idea/kivyTest1.iml" filepath="$USER_HOME$/PycharmProjects/kivyTest1/.idea/kivyTest1.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/litelist/.idea/litelist.iml" filepath="$USER_HOME$/PycharmProjects/litelist/.idea/litelist.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pygameTest.iml" filepath="$PROJECT_DIR$/.idea/pygameTest.iml" />
     </modules>
   </component>

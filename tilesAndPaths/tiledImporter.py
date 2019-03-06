@@ -46,7 +46,6 @@ def readTiledMap(screen, mapJsonPath,imagePath,layer):
                 screen.blit(tileSetSurface, (x*tileWidth, y*tileHeight))
 
 
-        #pprint(mapList)
         return mapList
 
 
@@ -219,12 +218,12 @@ def findPath(map,start,goal,walls=[1]):
 
 
 
-def drawPath(screen, path,tileWidth,tileHeight):
+def drawPath(screen, thePath,tileWidth,tileHeight):
     green = (0, 255, 0)
-    for x in range(0,len(path)):
+    for x in range(0,len(thePath)):
         next = x+1
-        if next <= (len(path)-1):
-            pygame.draw.line(screen,green,[(path[x][0]*tileWidth)+tileWidth/2,(path[x][1]*tileHeight)+tileHeight/2],[(path[next][0]*tileWidth)+tileWidth/2,(path[next][1]*tileHeight)+tileHeight/2],5)
+        if next <= (len(thePath)-1):
+            pygame.draw.line(screen,green,[(thePath[x][0]*tileWidth)+tileWidth/2,(thePath[x][1]*tileHeight)+tileHeight/2],[(thePath[next][0]*tileWidth)+tileWidth/2,(thePath[next][1]*tileHeight)+tileHeight/2],5)
 
 
 
