@@ -4,6 +4,12 @@ import json
 from pprint import pprint
 import pygame
 
+
+
+############################################################
+# Private function
+# Returns list with (x,y) positions of tiles in tile sheet
+############################################################
 def __getTileSetPositions__(jsonMapData):
 		# TODO: fix this method, xy tuples of tiles in tileset
 		tilePositions = []
@@ -14,6 +20,13 @@ def __getTileSetPositions__(jsonMapData):
 		return tilePositions
 
 
+
+
+
+############################################################
+# Public function
+# Returns a pygame surface from a tiled json
+############################################################
 def getTileMap(tiledJsonFile,tileSetImage, zoom=1):
     tileSetImage = pygame.image.load(tileSetImage)
     
@@ -37,6 +50,48 @@ def getTileMap(tiledJsonFile,tileSetImage, zoom=1):
     scaledMap = pygame.transform.scale(mapSurface,(mapSize[0]*zoom,mapSize[1]*zoom))
 
     return scaledMap
+
+
+
+
+
+############################################################
+# Class
+# A sprite with animations
+############################################################
+class AnimatedSprite(pygame.sprite.Sprite):
+    def __init__(self, spriteSheet,tilewidth, tileHeight, zoom=1):
+        
+        self.spriteSheet = pygame.image.load(spriteSheet)
+        self.tilewidth = tilewidth
+        self.tileHeight = tileHeight
+        self.spriteImagePositions = []
+
+        # some usual animations
+        self.walk = []
+        self.run = []
+        self.idle = []
+        self.jump = []
+        self.dead = []
+        self.falling = []
+        self.attack = []
+        # some extra animations if needed
+        self.animExtra01 = []
+        self.animExtra02 = []
+        self.animExtra03 = []
+
+
+    # save pixel positions of images in sprite sheet
+    def getSpritePostitions(self):
+        self.tPositions = []        
+        self.imageSize = self.spriteSheet.get_rect().size
+        for h in range(0,self.imageSize[1],self.tileHeight):
+            for w in range(0,self.imageSize[0],self.tilewidth):
+                t= (h,w)
+                self.spriteImagePositions.append(t)
+
+
+
 
 
 if __name__ == "__main__":
